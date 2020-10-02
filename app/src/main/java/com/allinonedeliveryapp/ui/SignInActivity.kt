@@ -1,9 +1,9 @@
-package com.allinonedeliveryapp
+package com.allinonedeliveryapp.ui
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.allinonedeliveryapp.ui.LoginSignup
+import com.allinonedeliveryapp.R
 import kotlinx.android.synthetic.main.activity_sign_in.*
 
 class SignInActivity : AppCompatActivity() {

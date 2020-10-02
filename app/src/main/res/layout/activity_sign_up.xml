@@ -5,10 +5,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="@dimen/size_16dp"
-    tools:context=".ui.SignInActivity">
+    tools:context=".ui.SignUpActivity">
 
     <ImageView
-        android:id="@+id/imgbackbutton"
+
+        android:id="@+id/imgbacksignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_back_arrow" />
@@ -19,7 +20,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/size_50dp"
         android:fontFamily="@font/gilroy_regular"
-        android:text="@string/welcome_back"
+        android:text="@string/create_an_account"
         android:textColor="#121212"
         android:textSize="@dimen/size_24sp"
         android:textStyle="bold" />
@@ -46,7 +47,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-
             android:layout_marginTop="@dimen/size_10dp"
             android:drawableLeft="@drawable/ic_email"
             android:drawablePadding="@dimen/size_20dp"
@@ -56,13 +56,18 @@
             android:maxLines="1"
             android:textColor="@color/txtcolor" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <EditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
+            android:layout_gravity="center_vertical"
             android:layout_marginTop="@dimen/size_10dp"
-            android:text="@string/forget_password"
-            android:textColor="@color/green" />
+            android:drawableLeft="@drawable/ic_lock_password"
+            android:drawableRight="@drawable/ic_eye_password"
+            android:drawablePadding="@dimen/size_20dp"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:lines="1"
+            android:textColor="@color/txtcolor" />
 
         <Button
             android:layout_width="match_parent"

@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.allinonedeliveryapp.R
-import com.allinonedeliveryapp.SignInActivity
 import kotlinx.android.synthetic.main.activity_login_signup.*
 
 class LoginSignup : AppCompatActivity() {
