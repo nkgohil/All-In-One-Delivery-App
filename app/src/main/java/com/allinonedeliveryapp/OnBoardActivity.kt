@@ -28,6 +28,10 @@ class OnBoardActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
             startActivity(Intent(this, LoginSignup::class.java))
             finish()
         }
+        skip.setOnClickListener {
+            startActivity(Intent(this, LoginSignup::class.java))
+            finish()
+        }
     }
 
     override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
