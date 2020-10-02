@@ -1,4 +1,4 @@
-package com.allinonedeliveryapp
+package com.allinonedeliveryapp.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.allinonedeliveryapp.Adapter.CustomPagerAdapter
+import com.allinonedeliveryapp.R
 import kotlinx.android.synthetic.main.activity_on_board.*
 import me.relex.circleindicator.CircleIndicator
 

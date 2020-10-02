@@ -1,10 +1,11 @@
-package com.allinonedeliveryapp
+package com.allinonedeliveryapp.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import com.allinonedeliveryapp.R
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

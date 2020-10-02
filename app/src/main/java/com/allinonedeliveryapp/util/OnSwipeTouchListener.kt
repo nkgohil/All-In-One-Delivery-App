@@ -1,4 +1,4 @@
-package com.allinonedeliveryapp
+package com.allinonedeliveryapp.util
 
 import android.content.Context
 import android.view.GestureDetector

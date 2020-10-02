@@ -1,4 +1,6 @@
-package com.allinonedeliveryapp
+package com.allinonedeliveryapp.model
+
+import com.allinonedeliveryapp.R
 
 enum class Model private constructor(val layoutResId: Int) {
     RED(R.layout.onboardone),

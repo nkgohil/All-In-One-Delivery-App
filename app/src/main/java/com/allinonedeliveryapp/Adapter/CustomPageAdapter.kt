@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.PagerAdapter
-import com.allinonedeliveryapp.Model
+import com.allinonedeliveryapp.model.Model
 
 class CustomPagerAdapter(private val mContext: Context) : PagerAdapter() {
 
