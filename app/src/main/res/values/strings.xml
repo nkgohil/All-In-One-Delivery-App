@@ -6,5 +6,7 @@
     <string name="we_are_happy_to_list_any_vendor_if_they_want_to_work_with_us_contact_us_for_get_an_overview_of_listing_scheme">We are happy to list any vendor if they \nwant to work with us. Contact us for get \nan overview of listing scheme.</string>
     <string name="we_are_worried_about_your_safety">We are worried \nabout your safety.</string>
     <string name="home_delivery_will_be_carried_by_ensuring_total_safety_measures_and_sanitization_with_gloves">Home delivery will be carried by ensuring \ntotal safety measures and sanitization \nwith gloves.</string>
+    <string name="signup">Signup</string>
+    <string name="log_in">Log in</string>
 
 </resources>
