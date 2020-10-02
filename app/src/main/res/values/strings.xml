@@ -19,5 +19,8 @@
     <string name="contact_us">Contact us</string>
     <string name="general_services">General Services</string>
     <string name="food_services">Food Services</string>
+    <string name="Message">Message</string>
+    <string name="call_us">Call us</string>
+    <string name="direct_whatsapp">Direct Whatsapp</string>
 
 </resources>

@@ -10,6 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.ProductClickActivity"></activity>
         <activity android:name=".ui.SignInActivity" />
         <activity android:name=".ui.DashBoardActivity" />
         <activity android:name=".ui.LoginSignup" />
@@ -22,7 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".MainActivity" />
     </application>
 
