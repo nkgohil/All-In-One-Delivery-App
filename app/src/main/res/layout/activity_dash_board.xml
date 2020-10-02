@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
     android:orientation="vertical"
     tools:context=".ui.DashBoardActivity">
 
@@ -12,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@android:color/white"
+        android:background="@color/white"
         tools:context=".ui.DashBoardActivity">
 
         <LinearLayout
@@ -131,16 +130,31 @@
 
     </androidx.core.widget.NestedScrollView>
 
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
         android:layout_marginHorizontal="@dimen/size_16dp"
-        android:layout_marginBottom="@dimen/size_16dp"
         android:background="@drawable/button"
-        android:padding="@dimen/size_20dp"
-        android:text="@string/contact_us"
-        android:textAllCaps="false"
-        android:textColor="@color/txtbutton" />
+        android:layout_marginBottom="@dimen/size_16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/size_16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="@string/contact_us"
+            android:textAllCaps="false"
+            android:textColor="@color/txtbutton" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/size_16dp"
+            android:src="@drawable/contact" />
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.allinonedeliveryapp.R
 import com.allinonedeliveryapp.ui.FoodServicesData
+import com.allinonedeliveryapp.util.OnRecyclerItemClickListener
 import kotlinx.android.synthetic.main.raw_food_service.view.*
 
-class FoodServiceAdapter : RecyclerView.Adapter<FoodServiceAdapter.FoodServiceViewHolder>() {
+class FoodServiceAdapter(var listener: OnRecyclerItemClickListener<FoodServicesData>) :
+    RecyclerView.Adapter<FoodServiceAdapter.FoodServiceViewHolder>() {
 
     lateinit var context: Context
     private var foodList: ArrayList<FoodServicesData> = arrayListOf()
@@ -43,5 +45,11 @@ class FoodServiceAdapter : RecyclerView.Adapter<FoodServiceAdapter.FoodServiceVi
         val name = itemView.tvName
         val imgService = itemView.ivServiceLogo
         val cardBg = itemView.llCardView
+
+        init {
+            itemView.setOnClickListener {
+                listener.onItemClick(it, adapterPosition, foodList[adapterPosition])
+            }
+        }
     }
 }

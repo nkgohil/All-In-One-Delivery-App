@@ -1,13 +1,15 @@
 package com.allinonedeliveryapp.ui
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.allinonedeliveryapp.R
 import com.allinonedeliveryapp.adapter.FoodServiceAdapter
+import com.allinonedeliveryapp.util.OnRecyclerItemClickListener
 import kotlinx.android.synthetic.main.activity_dash_board.*
 
-class DashBoardActivity : AppCompatActivity() {
+class DashBoardActivity : AppCompatActivity(), OnRecyclerItemClickListener<FoodServicesData> {
 
     var adapterFood: FoodServiceAdapter? = null
     var adapterGeneral: FoodServiceAdapter? = null
@@ -22,13 +24,13 @@ class DashBoardActivity : AppCompatActivity() {
     private fun initView() {
         rvFoodServices.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        adapterFood = FoodServiceAdapter()
+        adapterFood = FoodServiceAdapter(this)
         adapterFood!!.addItems(foodServiceList())
         rvFoodServices.adapter = adapterFood
 
         rvGeneralServices.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        adapterGeneral = FoodServiceAdapter()
+        adapterGeneral = FoodServiceAdapter(this)
         adapterGeneral!!.addItems(foodServiceList())
         rvGeneralServices.adapter = adapterGeneral
     }
@@ -39,6 +41,10 @@ class DashBoardActivity : AppCompatActivity() {
         foodList.add(FoodServicesData("Groceries", R.drawable.groceries, R.color.cream))
         foodList.add(FoodServicesData("Vegetable", R.drawable.vegetable, R.color.cream))
         return foodList
+    }
+
+    override fun onItemClick(view: View?, position: Int, obj: FoodServicesData) {
+
     }
 }
 
