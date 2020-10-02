@@ -20,8 +20,8 @@
         android:layout_gravity="center_vertical"
         android:layout_marginTop="138dp"
         android:gravity="center"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp">
+        android:paddingStart="@dimen/size_20dp"
+        android:paddingEnd="@dimen/size_20dp">
 
         <Button
             android:id="@+id/btnLogIn"
@@ -41,7 +41,6 @@
             android:layout_weight="1"
             android:background="@drawable/button"
             android:text="@string/signup"
-            android:elevation="8dp"
             android:textAllCaps="false"
             android:textColor="@color/txtbutton" />
 
