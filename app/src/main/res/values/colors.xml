@@ -2,8 +2,9 @@
 <resources>
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#317d59</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorAccent">#317d59</color>
     <color name="green">#317d59</color>
     <color name="txtbutton">#FDDE85</color>
     <color name="txtbuttonlogin">#317D59</color>
+    <color name="txtcolor">#236145</color>
 </resources>

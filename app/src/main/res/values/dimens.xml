@@ -87,5 +87,6 @@
     <dimen name="size_3dp">3dp</dimen>
     <dimen name="size_170dp">170dp</dimen>
     <dimen name="editor_size">35dp</dimen>
+    <dimen name="size_152dp">152dp</dimen>
 
 </resources>
