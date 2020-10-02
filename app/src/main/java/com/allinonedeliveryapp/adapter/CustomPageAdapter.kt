@@ -1,4 +1,4 @@
-package com.allinonedeliveryapp.Adapter
+package com.allinonedeliveryapp.adapter
 
 import android.content.Context
 import android.view.LayoutInflater

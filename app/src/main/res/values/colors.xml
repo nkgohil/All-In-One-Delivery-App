@@ -6,5 +6,8 @@
     <color name="green">#317d59</color>
     <color name="txtbutton">#FDDE85</color>
     <color name="txtbuttonlogin">#317D59</color>
+    <color name="cream">#F9D7D7</color>
+    <color name="skin">#FBF4DE</color>
+    <color name="yellowLight">#EDEDB5</color>
     <color name="txtcolor">#236145</color>
 </resources>
