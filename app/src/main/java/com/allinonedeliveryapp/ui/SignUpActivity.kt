@@ -18,5 +18,9 @@ class SignUpActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginSignup::class.java))
             finish()
         }
+        SignUp.setOnClickListener {
+            startActivity(Intent(this, ProductClickActivity::class.java))
+            finish()
+        }
     }
 }

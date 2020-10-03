@@ -17,7 +17,6 @@ class DashBoardActivity : AppCompatActivity(), OnRecyclerItemClickListener<FoodS
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dash_board)
-
         initView()
     }
 

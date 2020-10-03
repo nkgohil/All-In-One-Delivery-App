@@ -89,5 +89,6 @@
     <dimen name="editor_size">35dp</dimen>
     <dimen name="size_152dp">152dp</dimen>
     <dimen name="size_15dp">15dp</dimen>
+    <dimen name="size_17dp">17dp</dimen>
 
 </resources>

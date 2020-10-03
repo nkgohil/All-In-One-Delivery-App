@@ -79,7 +79,7 @@
         android:layout_marginTop="@dimen/size_20dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="11dp"
             android:layout_weight="1"
@@ -108,7 +108,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/loginbutton"
@@ -140,7 +140,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/size_20dp"
-        android:layout_marginTop="@dimen/size_15dp"
+        android:layout_marginTop="@dimen/size_20dp"
         android:layout_marginBottom="@dimen/size_16dp"
         android:background="@drawable/button"
         android:gravity="center"
@@ -148,6 +148,8 @@
         android:padding="@dimen/size_16dp">
 
         <TextView
+            android:fontFamily="@font/gilroy_bold"
+            android:textSize="@dimen/size_17dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"

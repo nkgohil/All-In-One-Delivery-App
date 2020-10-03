@@ -141,8 +141,10 @@
         android:padding="@dimen/size_16dp">
 
         <TextView
+            android:layout_height="match_parent"
+            android:fontFamily="@font/gilroy_bold"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:textSize="@dimen/size_17dp"
             android:layout_gravity="bottom"
             android:text="@string/contact_us"
             android:textAllCaps="false"
@@ -152,8 +154,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="@dimen/size_16dp"
-            android:src="@drawable/contact" />
+            android:layout_marginStart="@dimen/size_10dp"
+            android:src="@drawable/ic_phone" />
 
     </LinearLayout>
 

@@ -10,9 +10,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.ProductClickActivity"></activity>
+        <activity android:name=".ui.ProductClickActivity">
+
+        </activity>
         <activity android:name=".ui.SignInActivity" />
-        <activity android:name=".ui.DashBoardActivity" />
+        <activity
+            android:name=".ui.DashBoardActivity"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".ui.LoginSignup" />
         <activity android:name=".ui.SignUpActivity" />
         <activity android:name=".ui.OnBoardActivity" />
