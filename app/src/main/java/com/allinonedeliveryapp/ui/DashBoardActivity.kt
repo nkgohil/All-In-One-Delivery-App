@@ -13,6 +13,7 @@ class DashBoardActivity : AppCompatActivity(), OnRecyclerItemClickListener<FoodS
 
     var adapterFood: FoodServiceAdapter? = null
     var adapterGeneral: FoodServiceAdapter? = null
+    var adapterRepair: FoodServiceAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +33,12 @@ class DashBoardActivity : AppCompatActivity(), OnRecyclerItemClickListener<FoodS
         adapterGeneral = FoodServiceAdapter(this)
         adapterGeneral!!.addItems(foodServiceList())
         rvGeneralServices.adapter = adapterGeneral
+
+        rvRepairServices.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        adapterRepair = FoodServiceAdapter(this)
+        adapterRepair!!.addItems(foodServiceList())
+        rvRepairServices.adapter = adapterRepair
     }
 
     private fun foodServiceList(): ArrayList<FoodServicesData> {
