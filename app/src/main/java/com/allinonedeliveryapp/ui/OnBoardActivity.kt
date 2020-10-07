@@ -14,6 +14,7 @@ class OnBoardActivity : AppCompatActivity(), ViewPager.OnPageChangeListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        overridePendingTransition(R.anim.fadein, R.anim.fadeout)
         setContentView(R.layout.activity_on_board)
         val viewPager = findViewById<View>(R.id.viewPager) as ViewPager
         viewPager.adapter = CustomPagerAdapter(this)

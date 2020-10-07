@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/size_40dp"
+    tools:context=".ui.ProfileScreen">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/size_71dp"
+            android:layout_height="@dimen/size_71dp"
+            app:cardCornerRadius="@dimen/size_20dp">
+
+            <FrameLayout
+                android:layout_width="@dimen/size_71dp"
+                android:layout_height="@dimen/size_71dp">
+
+                <ImageView
+                    android:id="@+id/imageProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/placeholder" />
+
+                <ImageView
+                    android:id="@+id/setimage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|bottom"
+                    android:padding="@dimen/size_5dp"
+                    android:src="@drawable/ic_camera" />
+            </FrameLayout>
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="@dimen/size_10dp">
+
+            <TextView
+                android:id="@+id/tvprofileusername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_bold"
+                android:text=""
+                android:textColor="#121212"
+                android:textSize="@dimen/size_14sp" />
+
+            <TextView
+                android:id="@+id/profileemail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_10dp"
+                android:fontFamily="@font/gilroy_regular"
+                android:text=""
+                android:textColor="#121212"
+                android:textSize="@dimen/size_12sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_1dp"
+        android:layout_marginTop="@dimen/size_24dp"
+        android:alpha=".5"
+        android:background="#808085" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_18dp"
+        android:drawableLeft="@drawable/ic_ao"
+        android:drawablePadding="@dimen/size_10dp"
+        android:fontFamily="@font/gilroy_regular"
+        android:text=" About all in one"
+        android:textSize="@dimen/size_15sp" />
+
+    <TextView
+        android:id="@+id/shareall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_18dp"
+        android:drawableLeft="@drawable/ic_share1"
+        android:drawablePadding="@dimen/size_10dp"
+        android:fontFamily="@font/gilroy_regular"
+        android:text="Share all in one "
+        android:textSize="@dimen/size_15sp" />
+
+    <TextView
+        android:id="@+id/rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_18dp"
+        android:drawableLeft="@drawable/ic_path"
+        android:drawablePadding="@dimen/size_10dp"
+        android:fontFamily="@font/gilroy_regular"
+        android:text=" Rate all in one"
+        android:textSize="@dimen/size_15sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_1dp"
+        android:layout_marginTop="@dimen/size_30dp"
+        android:alpha=".5"
+        android:background="#808085" />
+
+    <TextView
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/size_36dp"
+        android:text="@string/logout"
+        android:textColor="#ff394b"
+        android:textSize="@dimen/size_20sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/size_18dp"
+        android:background="@drawable/loginbutton"
+        android:paddingHorizontal="@dimen/size_20dp"
+        android:text="1.1.1.1" />
+
+
+</LinearLayout>

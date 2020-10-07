@@ -61,5 +61,7 @@ dependencies {
 
     //logging interceptor
     implementation "com.squareup.okhttp3:logging-interceptor:4.7.2"
+    //circular imageview
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
 }

@@ -6,7 +6,7 @@ import com.allinonedeliveryapp.AppClass
 
 
 class PreferenceHelper private constructor() {
-
+    private val USER_NAME = "USER_NAME"
     private val AUTH_TOKEN = "AUTH_TOKEN"
     private val FCM_TOKEN = "FCM_TOKEN"
     private val IS_LOGIN = "IS_LOGIN"
@@ -41,6 +41,13 @@ class PreferenceHelper private constructor() {
         }
     }
 
+    var username: String?
+        get() = mPrefs.getString(USER_NAME, "")
+        set(userId) = mPrefs.edit().putString(USER_NAME, userId).apply()
+
+    var userId: String?
+        get() = mPrefs.getString(USER_ID, "")
+        set(userId) = mPrefs.edit().putString(USER_ID, userId).apply()
     var authToken: String?
         get() = mPrefs.getString(AUTH_TOKEN, "")
         set(token) = mPrefs.edit().putString(AUTH_TOKEN, token).apply()

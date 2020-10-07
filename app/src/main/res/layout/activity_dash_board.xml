@@ -53,12 +53,19 @@
 
                 </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/imageProfile"
+                <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:src="@drawable/profile" />
+                    app:cardCornerRadius="@dimen/size_10dp">
+
+                    <ImageView
+                        android:id="@+id/imageProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/profile" />
+                </androidx.cardview.widget.CardView>
 
             </LinearLayout>
 
@@ -72,6 +79,8 @@
                 app:cardUseCompatPadding="true">
 
                 <androidx.appcompat.widget.AppCompatEditText
+                    android:inputType="text"
+                    android:lines="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/size_8dp"
@@ -150,6 +159,7 @@
     </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
+        android:id="@+id/contactus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/size_16dp"

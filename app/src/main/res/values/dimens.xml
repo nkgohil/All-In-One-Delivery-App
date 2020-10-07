@@ -90,5 +90,10 @@
     <dimen name="size_152dp">152dp</dimen>
     <dimen name="size_15dp">15dp</dimen>
     <dimen name="size_17dp">17dp</dimen>
+    <dimen name="size_17sp">17sp</dimen>
+    <dimen name="size_110dp">110dp</dimen>
+    <dimen name="size_71dp">71dp</dimen>
+    <dimen name="size_5dp">5dp</dimen>
+    <dimen name="size_15sp">15sp</dimen>
 
 </resources>

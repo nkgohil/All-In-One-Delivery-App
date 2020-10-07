@@ -23,5 +23,10 @@
     <string name="call_us">Call us</string>
     <string name="direct_whatsapp">Direct Whatsapp</string>
     <string name="repairing_service">Repairing Service</string>
+    <string name="share">Share</string>
+    <string name="Rating">Rating</string>
+    <string name="username">Ajay</string>
+    <string name="user_email">ajayumat90@gmail.com</string>
+    <string name="logout">Logout</string>
 
 </resources>

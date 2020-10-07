@@ -1,4 +1,4 @@
-package com.jamangle.utils
+package com.allinonedeliveryapp.util
 
 import android.app.ProgressDialog
 import android.content.Context

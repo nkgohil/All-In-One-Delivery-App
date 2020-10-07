@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/size_20dp"
+    tools:context=".ui.SubCategoryActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back_arrow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/size_10dp"
+            android:fontFamily="@font/gilroy_regular"
+            android:gravity="center_vertical"
+            android:text="Groceries"
+            android:textColor="#121212"
+            android:textFontWeight="600"
+            android:textSize="@dimen/size_20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/subcategoryrecyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:spanCount="2" />
+</LinearLayout>

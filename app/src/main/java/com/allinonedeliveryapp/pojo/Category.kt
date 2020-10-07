@@ -1,0 +1,19 @@
+package com.allinonedeliveryapp.pojo
+
+class Category : ArrayList<CategoryItem>()
+
+data class CategoryItem(
+    val category_id: Int,
+    val subcategory: List<Subcategory>,
+    val title: String
+)
+
+data class Subcategory(
+    val color_hex: Int,
+    val contact_number: Long,
+    val description: String,
+    val how_it_works: String,
+    val image: String,
+    val subcategory_id: Int,
+    val title: String
+)
