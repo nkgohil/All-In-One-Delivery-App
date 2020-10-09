@@ -16,11 +16,14 @@ import com.allinonedeliveryapp.R
 import com.allinonedeliveryapp.extension.hideProgressDialog
 import com.allinonedeliveryapp.extension.showProgressDialog
 import com.allinonedeliveryapp.pojo.ProfileRetrieve
+import com.allinonedeliveryapp.pojo.ProfileUpdate
+import com.allinonedeliveryapp.util.Constant
 import com.allinonedeliveryapp.util.PreferenceHelper
 import com.allinonedeliveryapp.webapi.RemoteCallback
 import com.allinonedeliveryapp.webapi.WebAPIManager
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_profile_screen.*
+
 
 class ProfileScreen : AppCompatActivity(), View.OnClickListener {
     private val IMAGE_PICK_CODE = 1000;
@@ -97,6 +100,7 @@ class ProfileScreen : AppCompatActivity(), View.OnClickListener {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         startActivityForResult(intent, IMAGE_PICK_CODE)
+
     }
 
     override fun onRequestPermissionsResult(
@@ -122,9 +126,40 @@ class ProfileScreen : AppCompatActivity(), View.OnClickListener {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
-            imageProfile.setImageURI(data?.data)
+            imageProfile.setImageURI(data?.data).toString()
+            var image: String? = data!!.data!!.path
+
             Log.e("tag", data.toString())
+
+            profileUpdate(Constant.BASE_URL + image!!)
+
         }
+    }
+
+    private fun profileUpdate(image: String) {
+        WebAPIManager.instance.profileUpdate(image, PreferenceHelper.getInstance().userId!!.toInt())
+            .enqueue(
+                object : RemoteCallback<ProfileUpdate>() {
+                    override fun onSuccess(response: ProfileUpdate?) {
+                    }
+
+                    override fun onUnauthorized(throwable: Throwable) {
+                        Log.e("test", throwable.message!!)
+                    }
+
+                    override fun onFailed(throwable: Throwable) {
+                        Log.e("test", throwable.message!!)
+                    }
+
+                    override fun onInternetFailed() {
+                        Log.e("test", "no internet")
+                    }
+
+                    override fun onEmptyResponse(message: String) {
+                        Log.e("test", message!!)
+                    }
+
+                })
     }
 
     override fun onClick(v: View) {

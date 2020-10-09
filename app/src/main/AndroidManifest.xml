@@ -14,7 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.SubCategoryActivity"></activity>
         <activity android:name=".ui.ProfileScreen" />
         <activity android:name=".ui.ProductClickActivity" />
         <activity android:name=".ui.SignInActivity" />

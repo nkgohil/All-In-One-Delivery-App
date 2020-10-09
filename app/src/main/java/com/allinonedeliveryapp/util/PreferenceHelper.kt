@@ -21,6 +21,7 @@ class PreferenceHelper private constructor() {
     private val DEPT_ID = "DEPT_ID"
     private val BACK = "BACK"
     private val EXTRA = "EXTRA"
+    private val IMAGE_URI = "IMAGE_URI"
 
     private val mPrefs: SharedPreferences
 
@@ -44,6 +45,10 @@ class PreferenceHelper private constructor() {
     var username: String?
         get() = mPrefs.getString(USER_NAME, "")
         set(userId) = mPrefs.edit().putString(USER_NAME, userId).apply()
+
+    var imageUri: String?
+        get() = mPrefs.getString(IMAGE_URI, "")
+        set(profile_image) = mPrefs.edit().putString(IMAGE_URI, profile_image).apply()
 
     var userId: String?
         get() = mPrefs.getString(USER_ID, "")

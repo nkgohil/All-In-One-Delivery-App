@@ -1,10 +1,12 @@
 package com.allinonedeliveryapp.webapi
 
-import com.allinonedeliveryapp.pojo.CategoryItem
-import com.allinonedeliveryapp.pojo.Login
-import com.allinonedeliveryapp.pojo.ProfileRetrieve
-import com.allinonedeliveryapp.pojo.Register
+import android.text.TextUtils
+import com.allinonedeliveryapp.pojo.*
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
+import java.io.File
 
 
 class WebAPIManager private constructor() {
@@ -24,6 +26,16 @@ class WebAPIManager private constructor() {
             }
     }
 
+    private fun prepareImageBody(key: String, uri: String): MultipartBody.Part? {
+        var body: MultipartBody.Part? = null
+        if (!TextUtils.isEmpty(uri) && !uri.startsWith("http")) {
+            val file = File(uri)
+            val reqFile = RequestBody.create("image/*".toMediaType(), file)
+            body = MultipartBody.Part.createFormData(key, file.name, reqFile)
+        }
+        return body
+    }
+
     fun getData(email: String, username: String, password: String): Call<Register> {
         return mApiService.createUser(email, username, password)
     }
@@ -38,6 +50,15 @@ class WebAPIManager private constructor() {
 
     fun category(): Call<ArrayList<CategoryItem>> {
         return mApiService.category()
+    }
+
+    fun profileUpdate(profile_image: String, profile_id: Int): Call<ProfileUpdate> {
+        val imagePart: MultipartBody.Part? =
+            prepareImageBody(
+                "image",
+                profile_image
+            )
+        return mApiService.profileUpdate(profile_id, profile_image)
     }
 
 }

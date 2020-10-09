@@ -1,4 +1,4 @@
-package com.jamangle.webapi
+package com.allinonedeliveryapp.webapi
 
 import java.io.IOException
 

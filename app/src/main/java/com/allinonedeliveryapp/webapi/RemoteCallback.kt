@@ -2,7 +2,6 @@ package com.allinonedeliveryapp.webapi
 
 import android.text.TextUtils
 import android.util.Log
-import com.jamangle.webapi.NoConnectivityException
 import org.json.JSONException
 import org.json.JSONObject
 import retrofit2.Call

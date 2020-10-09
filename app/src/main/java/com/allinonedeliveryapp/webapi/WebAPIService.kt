@@ -1,9 +1,6 @@
 package com.allinonedeliveryapp.webapi
 
-import com.allinonedeliveryapp.pojo.CategoryItem
-import com.allinonedeliveryapp.pojo.Login
-import com.allinonedeliveryapp.pojo.ProfileRetrieve
-import com.allinonedeliveryapp.pojo.Register
+import com.allinonedeliveryapp.pojo.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -30,6 +27,13 @@ interface WebAPIService {
 
     @GET("category")
     fun category(): Call<ArrayList<CategoryItem>>
+
+    @FormUrlEncoded
+    @PUT("update/{profile_id}")
+    fun profileUpdate(
+        @Path("profile_id") profile_id: Int,
+        @Field("profile_image") profile_image: String
+    ): Call<ProfileUpdate>
 
 
 }   

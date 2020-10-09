@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.allinonedeliveryapp.R
 import com.allinonedeliveryapp.adapter.FoodServiceAdapter
 import com.allinonedeliveryapp.pojo.CategoryItem
+import com.allinonedeliveryapp.pojo.Subcategory
 import com.allinonedeliveryapp.util.OnRecyclerItemClickListener
 import com.allinonedeliveryapp.util.PreferenceHelper
 import com.allinonedeliveryapp.webapi.RemoteCallback
@@ -16,10 +17,13 @@ import com.allinonedeliveryapp.webapi.WebAPIManager
 import kotlinx.android.synthetic.main.activity_dash_board.*
 
 
-class DashBoardActivity : AppCompatActivity(), OnRecyclerItemClickListener<FoodServicesData> {
+class DashBoardActivity : AppCompatActivity(), OnRecyclerItemClickListener<Subcategory> {
     var adapterFood: FoodServiceAdapter? = null
     var adapterGeneral: FoodServiceAdapter? = null
     var adapterRepair: FoodServiceAdapter? = null
+    var foodList: ArrayList<Subcategory> = arrayListOf()
+    var generalList: ArrayList<Subcategory> = arrayListOf()
+    var repairingList: ArrayList<Subcategory> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +48,6 @@ class DashBoardActivity : AppCompatActivity(), OnRecyclerItemClickListener<FoodS
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         adapterGeneral = FoodServiceAdapter(this)
 
-
         rvRepairServices.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         adapterRepair = FoodServiceAdapter(this)
@@ -60,11 +63,22 @@ class DashBoardActivity : AppCompatActivity(), OnRecyclerItemClickListener<FoodS
         WebAPIManager.instance.category()
             .enqueue(object : RemoteCallback<ArrayList<CategoryItem>>() {
                 override fun onSuccess(response: ArrayList<CategoryItem>?) {
-                    adapterFood!!.addItems(foodServiceList())
+                    for (item in response!!.indices) {
+                        if (response[item].category_id == 1) {
+                            foodList.addAll(response[item].subcategory!!)
+                        }
+                        if (response[item].category_id == 2) {
+                            generalList.addAll(response[item].subcategory!!)
+                        }
+                        if (response[item].category_id == 3) {
+                            repairingList.addAll(response[item].subcategory!!)
+                        }
+                    }
+                    adapterFood!!.addItems(foodList)
                     rvFoodServices.adapter = adapterFood
-                    adapterRepair!!.addItems(foodServiceList())
+                    adapterRepair!!.addItems(repairingList)
                     rvRepairServices.adapter = adapterRepair
-                    adapterGeneral!!.addItems(foodServiceList())
+                    adapterGeneral!!.addItems(generalList)
                     rvGeneralServices.adapter = adapterGeneral
                 }
 
@@ -87,18 +101,6 @@ class DashBoardActivity : AppCompatActivity(), OnRecyclerItemClickListener<FoodS
             })
     }
 
-    private fun foodServiceList(): ArrayList<FoodServicesData> {
-        val foodList: ArrayList<FoodServicesData> = arrayListOf()
-        foodList.add(FoodServicesData("Vegetable", R.drawable.vegetable, R.color.cream))
-        foodList.add(FoodServicesData("Groceries", R.drawable.groceries, R.color.cream))
-        foodList.add(FoodServicesData("Vegetable", R.drawable.vegetable, R.color.cream))
-        return foodList
-    }
-
-    override fun onItemClick(view: View?, position: Int, obj: FoodServicesData) {
-
-    }
-
     private fun openWhatsApp() {
         try {
             val text = "This is a test" // Replace with your message.
@@ -112,10 +114,11 @@ class DashBoardActivity : AppCompatActivity(), OnRecyclerItemClickListener<FoodS
             e.printStackTrace()
         }
     }
+
+    override fun onItemClick(view: View?, position: Int, obj: Subcategory) {
+        val intent = Intent(this, ProductClickActivity::class.java)
+        intent.putExtra("data", obj)
+        startActivity(intent)
+    }
 }
 
-data class FoodServicesData(
-    var name: String,
-    var serviceImage: Int,
-    var bgColor: Int
-)

@@ -6,15 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.allinonedeliveryapp.R
-import com.allinonedeliveryapp.ui.FoodServicesData
+import com.allinonedeliveryapp.pojo.Subcategory
 import com.allinonedeliveryapp.util.OnRecyclerItemClickListener
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.raw_food_service.view.*
 
-class FoodServiceAdapter(var listener: OnRecyclerItemClickListener<FoodServicesData>) :
+class FoodServiceAdapter(var listener: OnRecyclerItemClickListener<Subcategory>) :
     RecyclerView.Adapter<FoodServiceAdapter.FoodServiceViewHolder>() {
 
     lateinit var context: Context
-    private var foodList: ArrayList<FoodServicesData> = arrayListOf()
+    private var foodList: ArrayList<Subcategory> = arrayListOf()
+
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -26,7 +28,7 @@ class FoodServiceAdapter(var listener: OnRecyclerItemClickListener<FoodServicesD
         )
     }
 
-    fun addItems(items: ArrayList<FoodServicesData>) {
+    fun addItems(items: ArrayList<Subcategory>) {
         foodList.clear()
         foodList.addAll(items)
         notifyDataSetChanged()
@@ -37,8 +39,9 @@ class FoodServiceAdapter(var listener: OnRecyclerItemClickListener<FoodServicesD
     }
 
     override fun onBindViewHolder(holder: FoodServiceViewHolder, position: Int) {
-        holder.name.text = foodList[position].name
-        holder.imgService.setImageResource(foodList[position].serviceImage)
+        holder.name.text = foodList[position].title
+        Glide.with(context).load(foodList[position].image).into(holder.imgService)
+
     }
 
     inner class FoodServiceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

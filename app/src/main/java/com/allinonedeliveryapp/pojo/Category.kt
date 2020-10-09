@@ -1,5 +1,8 @@
 package com.allinonedeliveryapp.pojo
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
 class Category : ArrayList<CategoryItem>()
 
 data class CategoryItem(
@@ -8,6 +11,7 @@ data class CategoryItem(
     val title: String
 )
 
+@Parcelize
 data class Subcategory(
     val color_hex: Int,
     val contact_number: Long,
@@ -16,4 +20,4 @@ data class Subcategory(
     val image: String,
     val subcategory_id: Int,
     val title: String
-)
+) : Parcelable

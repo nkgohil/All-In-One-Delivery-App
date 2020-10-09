@@ -4,17 +4,33 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import com.allinonedeliveryapp.R
+import com.allinonedeliveryapp.pojo.Subcategory
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_product_click.*
 
 
 class ProductClickActivity : AppCompatActivity() {
+
+    var list: Subcategory? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        overridePendingTransition(R.anim.fadein, R.anim.fadeout)
         setContentView(R.layout.activity_product_click)
+
+        if (intent != null) {
+            list = intent.getParcelableExtra("data")
+        }
+        menuIcon.setOnClickListener {
+            val intent = Intent(this, DashBoardActivity::class.java)
+            startActivity(intent)
+        }
+        getDescription()
+
+        tvhowmightwork.movementMethod = ScrollingMovementMethod()
+        tvdescription.movementMethod = ScrollingMovementMethod()
         menuitem.setOnClickListener {
             //Creating the instance of PopupMenu
             val popup = PopupMenu(this@ProductClickActivity, menuitem)
@@ -65,6 +81,14 @@ class ProductClickActivity : AppCompatActivity() {
             }
             popup.show()//showing popup menu
         }
+    }
+
+    private fun getDescription() {
+        tvdescription.text = list!!.description
+        tvhowmightwork.text = list!!.how_it_works
+        Glide.with(this).load(list!!.image).into(imgproduct)
+        tvtitle.text = list!!.title
+
     }
 
 }

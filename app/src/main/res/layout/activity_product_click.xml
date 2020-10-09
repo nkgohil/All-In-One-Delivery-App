@@ -20,6 +20,7 @@
             android:src="@drawable/ic_back_arrow" />
 
         <TextView
+            android:id="@+id/tvtitle"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -41,147 +42,187 @@
             android:src="@drawable/ic_baseline_more_vert_24" />
     </FrameLayout>
 
-    <ImageView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_rectangle_15" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/size_20dp"
-        android:layout_marginTop="@dimen/size_10dp"
-        android:fontFamily="@font/gilroy_medium"
-        android:text="Description"
-        android:textColor="#121212"
-        android:textSize="@dimen/size_16sp" />
-
-    <TextView
-        android:fontFamily="@font/gilroy_medium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/size_20dp"
-        android:layout_marginTop="@dimen/size_10dp"
-        android:layout_marginEnd="68dp"
-        android:text="Your life saver medicines at your door. You are just one step away"
-        android:textColor="#808085"
-        android:textSize="@dimen/size_12sp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/size_20dp"
-        android:layout_marginTop="@dimen/size_60dp"
-        android:fontFamily="@font/gilroy_medium"
-        android:text="How might work"
-        android:textColor="#121212"
-        android:textSize="@dimen/size_16sp" />
-
-    <TextView
-        android:fontFamily="@font/gilroy_medium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/size_20dp"
-        android:layout_marginTop="@dimen/size_10dp"
-        android:layout_marginEnd="68dp"
-        android:text="complete all your works just by dialing a phone number from your home. Home delivery will be carried by ensuring total safety measures and sanitization with gloves."
-        android:textColor="#808085"
-        android:textSize="@dimen/size_12sp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/size_20dp"
-        android:layout_marginTop="@dimen/size_20dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="11dp"
-            android:layout_weight="1"
-            android:background="@drawable/loginbutton"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="@dimen/size_16dp">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <TextView
-                android:fontFamily="@font/gilroy_medium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:gravity="center"
-                android:text="@string/Message"
-                android:textAllCaps="false"
-                android:textColor="@color/green"
-                android:textSize="20sp" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="2dp"
-                android:src="@drawable/ic_message" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
+                    <ImageView
+                        android:id="@+id/imgproduct"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#ffffff"
+                        android:src="@drawable/ic_rectangle_15" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/size_20dp"
+                        android:layout_marginTop="@dimen/size_10dp"
+                        android:fontFamily="@font/gilroy_medium"
+                        android:text="Description"
+                        android:textColor="#121212"
+                        android:textFontWeight="600"
+                        android:textSize="@dimen/size_16sp" />
+
+                    <TextView
+                        android:id="@+id/tvdescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_60dp"
+                        android:layout_marginStart="@dimen/size_20dp"
+                        android:layout_marginTop="@dimen/size_10dp"
+                        android:layout_marginEnd="68dp"
+                        android:fontFamily="@font/gilroy_medium"
+                        android:text="Your life saver medicines at your door. You are just one step away"
+                        android:textColor="#808085"
+                        android:textFontWeight="600"
+                        android:textSize="@dimen/size_12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/size_20dp"
+                        android:layout_marginTop="@dimen/size_20dp"
+                        android:fontFamily="@font/gilroy_medium"
+                        android:text="How it might work"
+                        android:textColor="#121212"
+                        android:textFontWeight="600"
+                        android:textSize="@dimen/size_16sp" />
+
+                    <TextView
+                        android:id="@+id/tvhowmightwork"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_80dp"
+                        android:layout_marginStart="@dimen/size_20dp"
+                        android:layout_marginTop="@dimen/size_10dp"
+                        android:layout_marginEnd="68dp"
+                        android:fontFamily="@font/gilroy_medium"
+                        android:padding="@dimen/size_5dp"
+                        android:text="complete all  your works just by dialing a phone number from your home. Home delivery will be carried by ensuring total safety measures and sanitization with gloves."
+                        android:textColor="#808085"
+                        android:textFontWeight="600"
+                        android:textSize="@dimen/size_12sp" />
+
+                </LinearLayout>
+
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="bottom"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/size_20dp"
+                    android:layout_marginTop="@dimen/size_20dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="11dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/loginbutton"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/size_16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="@font/gilroy_medium"
+                            android:gravity="center"
+                            android:text="@string/Message"
+                            android:textAllCaps="false"
+                            android:textColor="@color/green"
+                            android:textSize="20sp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="2dp"
+                            android:src="@drawable/ic_message" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/loginbutton"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/size_16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="@font/gilroy_medium"
+                            android:gravity="center"
+                            android:text="@string/call_us"
+                            android:textAllCaps="false"
+                            android:textColor="@color/green"
+                            android:textSize="20sp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="2dp"
+                            android:src="@drawable/ic_call_green" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/size_20dp"
+                    android:layout_marginTop="@dimen/size_20dp"
+                    android:layout_marginBottom="@dimen/size_16dp"
+                    android:background="@drawable/button"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/size_16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:fontFamily="@font/gilroy_bold"
+                        android:text="@string/direct_whatsapp"
+                        android:textAllCaps="false"
+                        android:textColor="@color/txtbutton"
+                        android:textSize="@dimen/size_17dp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/size_10dp"
+                        android:src="@drawable/ic_whatsapp" />
+
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/loginbutton"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="@dimen/size_16dp">
-
-            <TextView
-                android:fontFamily="@font/gilroy_medium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:gravity="center"
-                android:text="@string/call_us"
-                android:textAllCaps="false"
-                android:textColor="@color/green"
-                android:textSize="20sp" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="2dp"
-                android:src="@drawable/ic_call_green" />
-
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/size_20dp"
-        android:layout_marginTop="@dimen/size_20dp"
-        android:layout_marginBottom="@dimen/size_16dp"
-        android:background="@drawable/button"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:padding="@dimen/size_16dp">
-
-        <TextView
-            android:fontFamily="@font/gilroy_bold"
-            android:textSize="@dimen/size_17dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:text="@string/direct_whatsapp"
-            android:textAllCaps="false"
-            android:textColor="@color/txtbutton" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="@dimen/size_10dp"
-            android:src="@drawable/ic_whatsapp" />
-
-    </LinearLayout>
-
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>
