@@ -1,10 +1,15 @@
 package com.allinonedeliveryapp.ui
 
+import android.annotation.SuppressLint
+import android.content.ActivityNotFoundException
+import android.content.ComponentName
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.allinonedeliveryapp.R
 import com.allinonedeliveryapp.extension.hideProgressDialog
@@ -17,6 +22,7 @@ import kotlinx.android.synthetic.main.activity_sign_in.*
 
 
 class SignInActivity : AppCompatActivity(), View.OnClickListener {
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        overridePendingTransition(R.anim.fadein, R.anim.fadeout)
@@ -28,6 +34,7 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
         imgbackbutton.setOnClickListener(this)
         btnLogIn.setOnClickListener(this)
         signupbtn.setOnClickListener(this)
+        tvForgotPassword.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -43,8 +50,8 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
 //                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
 //                startActivity(intent)
 //                finish()
-                loginemail.text.trim().toString()
-                loginpassword.text.trim().toString()
+                loginemail.text!!.trim().toString()
+                loginpassword.text!!.trim().toString()
 
                 if (isValid()) {
                     callLoginUser()
@@ -54,6 +61,21 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
             R.id.signupbtn -> {
                 val intent = Intent(this, SignUpActivity::class.java)
                 startActivity(intent)
+            }
+            R.id.tvForgotPassword -> {
+                val url = "http://samarth1771.pythonanywhere.com/reset_password/"
+                try {
+                    val i = Intent("android.intent.action.MAIN")
+                    i.component =
+                        ComponentName.unflattenFromString("com.android.chrome/com.android.chrome.Main")
+                    i.addCategory("android.intent.category.LAUNCHER")
+                    i.data = Uri.parse(url)
+                    startActivity(i)
+                } catch (e: ActivityNotFoundException) {
+                    // Chrome is not installed
+                    val i = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                    startActivity(i)
+                }
             }
         }
     }
@@ -82,6 +104,8 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
                 }
 
                 override fun onFailed(throwable: Throwable) {
+                    wrongid.text = throwable.message!!
+
                     hideProgressDialog()
 
                 }
@@ -103,25 +127,26 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun isValid(): Boolean {
         if (TextUtils.isEmpty(loginemail.text.toString())) {
-            loginemail.error = "Email required"
+            Toast.makeText(this, "Email required", Toast.LENGTH_LONG).show()
             loginemail.requestFocus()
             return false
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(loginemail.text.toString()).matches()) {
-            loginemail.error = "Invalid Email Address"
+            Toast.makeText(this, "Invalid Email Address", Toast.LENGTH_LONG).show()
             loginemail.requestFocus()
             return false
         }
         if (TextUtils.isEmpty(loginpassword.text.toString())) {
-            loginpassword.error = "Password required"
+            Toast.makeText(this, "Password Required", Toast.LENGTH_LONG).show()
             loginpassword.requestFocus()
             return false
         }
-        if (loginpassword.text.length < 8) {
-            loginpassword.error = "atleast 8 characters"
+        if (loginpassword.text!!.length < 8) {
+            Toast.makeText(this, "Atleast 8 characters", Toast.LENGTH_LONG).show()
             loginpassword.requestFocus()
             return false
         }
         return true
     }
+
 }

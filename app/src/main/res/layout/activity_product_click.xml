@@ -25,7 +25,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_marginBottom="@dimen/size_10dp"
-            android:fontFamily="@font/gilroy_regular"
+            android:fontFamily="@font/gilroy_semibold"
             android:gravity="bottom"
             android:text="Groceries"
             android:textColor="#121212"
@@ -85,7 +85,7 @@
                         android:layout_marginStart="@dimen/size_20dp"
                         android:layout_marginTop="@dimen/size_10dp"
                         android:layout_marginEnd="68dp"
-                        android:fontFamily="@font/gilroy_medium"
+                        android:fontFamily="@font/gilroy_regular"
                         android:text="Your life saver medicines at your door. You are just one step away"
                         android:textColor="#808085"
                         android:textFontWeight="600"
@@ -109,8 +109,8 @@
                         android:layout_marginStart="@dimen/size_20dp"
                         android:layout_marginTop="@dimen/size_10dp"
                         android:layout_marginEnd="68dp"
-                        android:fontFamily="@font/gilroy_medium"
-                        android:padding="@dimen/size_5dp"
+                        android:fontFamily="@font/gilroy_regular"
+
                         android:text="complete all  your works just by dialing a phone number from your home. Home delivery will be carried by ensuring total safety measures and sanitization with gloves."
                         android:textColor="#808085"
                         android:textFontWeight="600"
@@ -134,6 +134,7 @@
                     android:layout_marginTop="@dimen/size_20dp">
 
                     <LinearLayout
+                        android:id="@+id/btnmessage"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="11dp"
@@ -147,7 +148,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom"
-                            android:fontFamily="@font/gilroy_medium"
+                            android:fontFamily="@font/gilroy_semibold"
                             android:gravity="center"
                             android:text="@string/Message"
                             android:textAllCaps="false"
@@ -155,6 +156,7 @@
                             android:textSize="20sp" />
 
                         <ImageView
+                            android:layout_marginHorizontal="@dimen/size_5dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -164,6 +166,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/callus"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -176,7 +179,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom"
-                            android:fontFamily="@font/gilroy_medium"
+                            android:fontFamily="@font/gilroy_semibold"
                             android:gravity="center"
                             android:text="@string/call_us"
                             android:textAllCaps="false"
@@ -184,6 +187,7 @@
                             android:textSize="20sp" />
 
                         <ImageView
+                            android:layout_marginHorizontal="@dimen/size_5dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -194,6 +198,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/directwhatsapp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/size_20dp"

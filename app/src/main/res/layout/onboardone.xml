@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:background="@color/green"
     android:orientation="vertical"
-    android:padding="31dp"
     android:weightSum="3">
 
     <LinearLayout
@@ -15,14 +14,15 @@
         android:orientation="vertical">
 
         <ImageView
+            android:paddingStart="31dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_weight="1"
-            android:src="@drawable/onboardone" />
+            android:src="@drawable/ic_illustration_onboarding_screen_1" />
 
         <TextView
-
+            android:paddingStart="31dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/the_long_process_made_simple"
@@ -31,7 +31,8 @@
             android:textStyle="bold" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:paddingStart="31dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:lineSpacingExtra="8sp"

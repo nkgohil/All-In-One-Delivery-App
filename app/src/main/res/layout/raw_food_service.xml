@@ -5,8 +5,9 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginEnd="@dimen/size_8dp"
-    android:backgroundTint="@color/cream"
+    android:layout_marginTop="@dimen/size_5dp"
     android:orientation="vertical"
+    android:background="#ffffff"
     app:cardCornerRadius="@dimen/size_16dp">
 
     <LinearLayout
@@ -29,9 +30,10 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvName"
+            android:layout_marginTop="@dimen/size_10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/gilroy_regular"
+            android:fontFamily="@font/gilroy_semibold"
             android:gravity="center_horizontal"
             android:text="Vegetables"
             android:textColor="#121212"

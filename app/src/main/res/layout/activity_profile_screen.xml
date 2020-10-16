@@ -30,13 +30,7 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/placeholder" />
 
-                <ImageView
-                    android:id="@+id/setimage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end|bottom"
-                    android:padding="@dimen/size_5dp"
-                    android:src="@drawable/ic_camera" />
+
             </FrameLayout>
         </androidx.cardview.widget.CardView>
 
@@ -77,6 +71,7 @@
         android:background="#808085" />
 
     <TextView
+        android:id="@+id/about"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/size_18dp"

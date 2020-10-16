@@ -24,7 +24,7 @@
         android:paddingEnd="@dimen/size_20dp">
 
         <Button
-            android:fontFamily="@font/gilroy_medium"
+            android:fontFamily="@font/gilroy_semibold"
             android:textSize="@dimen/size_17sp"
             android:id="@+id/btnLogIn"
             android:layout_width="0dp"
@@ -37,7 +37,7 @@
             android:textColor="@color/txtbuttonlogin" />
 
         <Button
-            android:fontFamily="@font/gilroy_medium"
+            android:fontFamily="@font/gilroy_semibold"
             android:textSize="@dimen/size_17sp"
             android:id="@+id/btnSignUp"
             android:layout_width="0dp"

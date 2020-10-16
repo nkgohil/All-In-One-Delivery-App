@@ -36,72 +36,40 @@
                         android:id="@+id/tvUserName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/gilroy_regular"
+                        android:fontFamily="@font/gilroy_extrabold"
                         android:text="Hey Ibrahim"
                         android:textColor="#121212"
                         android:textSize="@dimen/size_24sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/size_8dp"
-                        android:fontFamily="@font/gilroy_regular"
-                        android:text="@string/what_do_you_like_to_find"
-                        android:textColor="#808085"
-                        android:textStyle="normal" />
+
 
                 </LinearLayout>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/size_50dp"
+                    android:layout_height="@dimen/size_50dp"
                     android:layout_gravity="center"
                     app:cardCornerRadius="@dimen/size_10dp">
 
                     <ImageView
-                        android:id="@+id/imageProfile"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/imageProfiledashboard"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
-                        android:src="@drawable/profile" />
+                        android:src="@drawable/placeholder" />
                 </androidx.cardview.widget.CardView>
 
             </LinearLayout>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/size_16dp"
-                android:elevation="@dimen/size_16dp"
-                app:cardCornerRadius="@dimen/size_16dp"
-                app:cardElevation="@dimen/size_16dp"
-                app:cardUseCompatPadding="true">
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:inputType="text"
-                    android:lines="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/size_8dp"
-                    android:background="@null"
-                    android:drawableStart="@drawable/search"
-                    android:drawablePadding="@dimen/size_16dp"
-                    android:fontFamily="@font/gilroy_regular"
-                    android:hint="@string/search"
-                    android:maxLines="1"
-                    android:padding="@dimen/size_10dp"
-                    android:paddingVertical="@dimen/size_4dp"
-                    android:textColorHint="#808085"
-                    android:textStyle="normal" />
-
-            </androidx.cardview.widget.CardView>
 
             <TextView
+                android:layout_marginTop="@dimen/size_20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/size_16dp"
-                android:fontFamily="@font/gilroy_regular"
+                android:fontFamily="@font/gilroy_semibold"
                 android:text="@string/food_services"
                 android:textColor="#121212"
                 android:textSize="@dimen/size_24sp"
@@ -113,14 +81,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/size_16dp"
                 android:clipToPadding="false"
-                android:paddingStart="@dimen/size_16dp" />
+                android:padding="@dimen/size_16dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/size_16dp"
                 android:layout_marginTop="@dimen/size_32dp"
-                android:fontFamily="@font/gilroy_regular"
+                android:fontFamily="@font/gilroy_semibold"
                 android:text="@string/general_services"
                 android:textColor="#121212"
                 android:textSize="@dimen/size_24sp"
@@ -132,14 +100,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/size_16dp"
                 android:clipToPadding="false"
-                android:paddingStart="@dimen/size_16dp" />
+                android:padding="@dimen/size_16dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/size_16dp"
                 android:layout_marginTop="@dimen/size_32dp"
-                android:fontFamily="@font/gilroy_regular"
+                android:fontFamily="@font/gilroy_semibold"
                 android:text="@string/repairing_service"
                 android:textColor="#121212"
                 android:textSize="@dimen/size_24sp"
@@ -152,7 +120,7 @@
                 android:layout_marginTop="@dimen/size_16dp"
                 android:layout_marginBottom="@dimen/size_16dp"
                 android:clipToPadding="false"
-                android:paddingStart="@dimen/size_16dp" />
+                android:padding="@dimen/size_16dp" />
 
         </LinearLayout>
 

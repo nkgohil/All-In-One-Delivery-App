@@ -1,17 +1,17 @@
 package com.allinonedeliveryapp.ui
 
-import android.Manifest
 import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.allinonedeliveryapp.AllAboutAllInOne
 import com.allinonedeliveryapp.R
 import com.allinonedeliveryapp.extension.hideProgressDialog
 import com.allinonedeliveryapp.extension.showProgressDialog
@@ -37,24 +37,24 @@ class ProfileScreen : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_profile_screen)
         getProfile()
         initview()
-        imageProfile.setOnClickListener {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) ==
-                    PackageManager.PERMISSION_DENIED
-                ) {
-                    //permission denied
-                    val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
-                    //show popup to request runtime permission
-                    requestPermissions(permissions, PERMISSION_CODE)
-                } else {
-                    //permission already granted
-                    pickImageFromGallery()
-                }
-            } else {
-                //system OS is < Marshmallow
-                pickImageFromGallery()
-            }
-        }
+//        imageProfile.setOnClickListener {
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//                if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) ==
+//                    PackageManager.PERMISSION_DENIED
+//                ) {
+//                    //permission denied
+//                    val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
+//                    //show popup to request runtime permission
+//                    requestPermissions(permissions, PERMISSION_CODE)
+//                } else {
+//                    //permission already granted
+//                    pickImageFromGallery()
+//                }
+//            } else {
+//                //system OS is < Marshmallow
+//                pickImageFromGallery()
+//            }
+//        }
     }
 
     private fun getProfile() {
@@ -94,6 +94,7 @@ class ProfileScreen : AppCompatActivity(), View.OnClickListener {
         shareall.setOnClickListener(this)
         rate.setOnClickListener(this)
         logout.setOnClickListener(this)
+        about.setOnClickListener(this)
     }
 
     private fun pickImageFromGallery() {
@@ -169,7 +170,10 @@ class ProfileScreen : AppCompatActivity(), View.OnClickListener {
                 val AutomaticIntent = Intent(Intent.ACTION_SEND)
                 AutomaticIntent.type = "text/plain"
                 AutomaticIntent.putExtra(Intent.EXTRA_TEXT, link)
-                AutomaticIntent.putExtra(Intent.EXTRA_SUBJECT, "All In One Delivery App")
+                AutomaticIntent.putExtra(
+                    Intent.EXTRA_SUBJECT, "Hello, This is All In One Application \n" +
+                            "that offers you anything you want from food Items to Bathing all Your need satisfied at one place"
+                )
                 startActivity(AutomaticIntent)
                 Log.e("tag", "button click")
             }
@@ -198,13 +202,29 @@ class ProfileScreen : AppCompatActivity(), View.OnClickListener {
 
             }
             R.id.logout -> {
-                val intent = Intent(this, SignInActivity::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                PreferenceHelper.getInstance().clearPref()
+                val dialog = AlertDialog.Builder(this)
+
+                dialog.setTitle("Logout")
+                    .setMessage("confirm to logout")
+                    .setPositiveButton("Logout") { dialog, whichButton ->
+                        val intent = Intent(this, SignInActivity::class.java)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        PreferenceHelper.getInstance().clearPref()
+                        startActivity(intent)
+                        finish()
+                    }
+                    .setNegativeButton("Cancel") { dialog, whichButton ->
+                        dialog.cancel()
+                    }
+
+                dialog.show()
+
+            }
+            R.id.about -> {
+                val intent = Intent(this, AllAboutAllInOne::class.java)
                 startActivity(intent)
-                finish()
             }
         }
 

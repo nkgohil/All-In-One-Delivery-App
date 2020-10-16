@@ -41,7 +41,6 @@ class FoodServiceAdapter(var listener: OnRecyclerItemClickListener<Subcategory>)
     override fun onBindViewHolder(holder: FoodServiceViewHolder, position: Int) {
         holder.name.text = foodList[position].title
         Glide.with(context).load(foodList[position].image).into(holder.imgService)
-
     }
 
     inner class FoodServiceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

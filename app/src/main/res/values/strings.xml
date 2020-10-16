@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AllInOneDeliveryApp</string>
+    <string name="app_name">All in One</string>
     <string name="the_long_process_made_simple">The long process \nmade simple.</string>
     <string name="putallworries">Put all worries aside and complete all your works\njust by dialing a phone number \nfrom your home.</string>
     <string name="we_are_expanding_our_reaches">We are expanding \nour reaches.</string>
@@ -28,5 +28,6 @@
     <string name="username">Ajay</string>
     <string name="user_email">ajayumat90@gmail.com</string>
     <string name="logout">Logout</string>
+    <string name="this_app_is_solely_made_to_simplify_client_s_requirements_for_various_services_and_many_more_things_as_the_indian_way_you_can_whatsapp_or_text_message_to_any_vendor_for_inquiries_and_buy_stuffs_you_ll_get_in_direct_touch_with_vendor_without_any_middleman_or_having_any_troubles">This app is solely made to simplify client\'s requirements for various services and many more things. As the \'Indian\' way, you can WhatsApp or Text Message to any vendor for inquiries and buy stuffs. You\'ll get in direct touch with vendor without any middleman or having any troubles.</string>
 
 </resources>

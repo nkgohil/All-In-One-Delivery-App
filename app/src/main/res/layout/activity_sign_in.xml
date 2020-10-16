@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".ui.SignInActivity">
 
@@ -17,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/size_50dp"
-        android:fontFamily="@font/gilroy_regular"
+        android:fontFamily="@font/gilroy_semibold"
         android:text="@string/welcome_back"
         android:textColor="#121212"
         android:textSize="@dimen/size_24sp"
@@ -29,38 +30,68 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/loginemail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:drawableLeft="@drawable/ic_email"
-            android:drawablePadding="@dimen/size_20dp"
-            android:hint="@string/Email"
-            android:layout_marginHorizontal="@dimen/size_16dp"
-            android:inputType="text"
-            android:lines="1"
-            android:maxLines="1"
-            android:textColor="@color/txtcolor" />
-
-        <EditText
-            android:id="@+id/loginpassword"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginHorizontal="@dimen/size_16dp"
             android:layout_marginTop="@dimen/size_10dp"
-            android:drawableLeft="@drawable/ic_lock_password"
-            android:drawablePadding="@dimen/size_20dp"
-            android:hint="@string/password"
-            android:inputType="textEmailAddress"
-            android:lines="1"
-            android:maxLines="1"
-            android:textColor="@color/txtcolor" />
+            app:hintAnimationEnabled="false"
+            app:hintEnabled="false"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/loginemail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:drawableLeft="@drawable/custom_email"
+                android:drawablePadding="@dimen/size_20dp"
+                android:hint="@string/Email"
+                android:inputType="text"
+                android:lines="1"
+                android:maxLines="1"
+                android:textColor="@color/txtcolor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etPasswordLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_10dp"
+            app:hintAnimationEnabled="false"
+            app:hintEnabled="false"
+            android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="@dimen/size_16dp"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/loginpassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/custom_password"
+                android:drawablePadding="@dimen/size_20dp"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:lines="1"
+                android:maxLines="1"
+                android:textColor="@color/txtcolor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/wrongid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/size_16dp"
+            android:layout_marginTop="@dimen/size_5dp"
+            android:gravity="start"
+            android:text=""
+            android:textColor="#E11727" />
 
         <TextView
             android:id="@+id/tvForgotPassword"
             android:layout_width="wrap_content"
+            android:fontFamily="@font/gilroy_semibold"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginTop="@dimen/size_10dp"
@@ -75,7 +106,9 @@
             android:layout_marginTop="@dimen/size_48dp"
             android:background="@drawable/button"
             android:padding="@dimen/size_20dp"
+            android:fontFamily="@font/gilroy_semibold"
             android:text="Login"
+            android:textSize="@dimen/size_17sp"
             android:textAlignment="center"
             android:layout_marginHorizontal="@dimen/size_16dp"
             android:textAllCaps="false"
@@ -118,6 +151,8 @@
             android:background="@drawable/loginbutton"
             android:padding="@dimen/size_20dp"
             android:text="Sign Up"
+            android:fontFamily="@font/gilroy_semibold"
+            android:textSize="@dimen/size_17sp"
             android:layout_marginHorizontal="@dimen/size_16dp"
             android:textAlignment="center"
             android:textAllCaps="false"

@@ -3,17 +3,23 @@ package com.allinonedeliveryapp.ui
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.allinonedeliveryapp.R
 import com.allinonedeliveryapp.adapter.FoodServiceAdapter
+import com.allinonedeliveryapp.extension.hideProgressDialog
+import com.allinonedeliveryapp.extension.showProgressDialog
+import com.allinonedeliveryapp.extension.showToast
 import com.allinonedeliveryapp.pojo.CategoryItem
+import com.allinonedeliveryapp.pojo.ProfileRetrieve
 import com.allinonedeliveryapp.pojo.Subcategory
 import com.allinonedeliveryapp.util.OnRecyclerItemClickListener
 import com.allinonedeliveryapp.util.PreferenceHelper
 import com.allinonedeliveryapp.webapi.RemoteCallback
 import com.allinonedeliveryapp.webapi.WebAPIManager
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_dash_board.*
 
 
@@ -25,6 +31,7 @@ class DashBoardActivity : AppCompatActivity(), OnRecyclerItemClickListener<Subca
     var generalList: ArrayList<Subcategory> = arrayListOf()
     var repairingList: ArrayList<Subcategory> = arrayListOf()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        overridePendingTransition(R.anim.fadein, R.anim.fadeout)
@@ -32,7 +39,41 @@ class DashBoardActivity : AppCompatActivity(), OnRecyclerItemClickListener<Subca
         tvUserName.setText("Hey " + PreferenceHelper.getInstance().username)
         initView()
         getCategory()
+        getProfileImage()
+    }
 
+    private fun getProfileImage() {
+        showProgressDialog()
+        WebAPIManager.instance.userProfile(PreferenceHelper.getInstance().userId!!.toInt())
+            .enqueue(object :
+                RemoteCallback<ProfileRetrieve>() {
+                override fun onSuccess(response: ProfileRetrieve?) {
+
+                    Glide.with(this@DashBoardActivity).asBitmap()
+                        .placeholder(R.drawable.placeholder)
+                        .load(response!!.profile_image).into(imageProfiledashboard)
+
+                    hideProgressDialog()
+                }
+
+                override fun onUnauthorized(throwable: Throwable) {
+                    hideProgressDialog()
+                }
+
+                override fun onFailed(throwable: Throwable) {
+                    Log.e("tag", throwable.localizedMessage)
+
+                }
+
+                override fun onInternetFailed() {
+                    hideProgressDialog()
+                }
+
+                override fun onEmptyResponse(message: String) {
+                    hideProgressDialog()
+                }
+
+            })
     }
 
     private fun initView() {
@@ -52,7 +93,7 @@ class DashBoardActivity : AppCompatActivity(), OnRecyclerItemClickListener<Subca
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         adapterRepair = FoodServiceAdapter(this)
 
-        imageProfile.setOnClickListener {
+        imageProfiledashboard.setOnClickListener {
             startActivity(Intent(this, ProfileScreen::class.java))
 
 
@@ -63,15 +104,16 @@ class DashBoardActivity : AppCompatActivity(), OnRecyclerItemClickListener<Subca
         WebAPIManager.instance.category()
             .enqueue(object : RemoteCallback<ArrayList<CategoryItem>>() {
                 override fun onSuccess(response: ArrayList<CategoryItem>?) {
+                    hideProgressDialog()
                     for (item in response!!.indices) {
                         if (response[item].category_id == 1) {
-                            foodList.addAll(response[item].subcategory!!)
+                            foodList.addAll(response[item].subcategory)
                         }
                         if (response[item].category_id == 2) {
-                            generalList.addAll(response[item].subcategory!!)
+                            generalList.addAll(response[item].subcategory)
                         }
                         if (response[item].category_id == 3) {
-                            repairingList.addAll(response[item].subcategory!!)
+                            repairingList.addAll(response[item].subcategory)
                         }
                     }
                     adapterFood!!.addItems(foodList)
@@ -83,19 +125,21 @@ class DashBoardActivity : AppCompatActivity(), OnRecyclerItemClickListener<Subca
                 }
 
                 override fun onUnauthorized(throwable: Throwable) {
-                    TODO("Not yet implemented")
+                    hideProgressDialog()
                 }
 
                 override fun onFailed(throwable: Throwable) {
-                    TODO("Not yet implemented")
+                    showToast(throwable.message!!)
+                    hideProgressDialog()
                 }
 
                 override fun onInternetFailed() {
-                    TODO("Not yet implemented")
+                    showToast("please connect internet")
+                    hideProgressDialog()
                 }
 
                 override fun onEmptyResponse(message: String) {
-                    TODO("Not yet implemented")
+                    hideProgressDialog()
                 }
 
             })
@@ -103,7 +147,7 @@ class DashBoardActivity : AppCompatActivity(), OnRecyclerItemClickListener<Subca
 
     private fun openWhatsApp() {
         try {
-            val text = "This is a test" // Replace with your message.
+            val text = "I want to buy" // Replace with your message.
             val toNumber =
                 "917878716161" // Replace with mobile phone number without +Sign or leading zeros, but with country code
             //Suppose your country is India and your phone number is “xxxxxxxxxx”, then you need to send “91xxxxxxxxxx”.

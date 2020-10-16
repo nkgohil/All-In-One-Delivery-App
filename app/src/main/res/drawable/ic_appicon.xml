@@ -1,0 +1,44 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="380dp"
+    android:height="380dp"
+    android:viewportWidth="380"
+    android:viewportHeight="380">
+  <path android:pathData="M105,15L275,15A65,65 0,0 1,340 80L340,250A65,65 0,0 1,275 315L105,315A65,65 0,0 1,40 250L40,80A65,65 0,0 1,105 15z">
+    <aapt:attr name="android:fillColor">
+      <gradient
+          android:endX="190"
+          android:endY="315"
+          android:startX="190"
+          android:startY="15"
+          android:type="linear">
+        <item
+            android:color="#FF236145"
+            android:offset="0" />
+        <item
+            android:color="#FF317D59"
+            android:offset="1" />
+      </gradient>
+    </aapt:attr>
+  </path>
+  <path android:pathData="M149.344,170L145.744,157.88H117.784L114.184,170H90.904L118.624,86H144.784L172.504,170H149.344ZM123.304,139.4H140.224L131.704,110.84L123.304,139.4ZM200.092,149.24H229.012V170H178.612V86H200.092V149.24ZM258.334,149.24H287.254V170H236.854V86H258.334V149.24Z">
+    <aapt:attr name="android:fillColor">
+      <gradient
+          android:endX="190"
+          android:endY="173"
+          android:startX="190"
+          android:startY="119"
+          android:type="linear">
+        <item
+            android:color="#FFFFCB3A"
+            android:offset="0" />
+        <item
+            android:color="#FFFDDE85"
+            android:offset="1" />
+      </gradient>
+    </aapt:attr>
+  </path>
+  <path
+      android:fillColor="#ffffff"
+      android:pathData="M91.426,177.2H102.882V222H91.426V177.2ZM134.63,177.2H146.022V222H137.19L121.382,199.472V222H109.926V177.2H118.822L134.63,199.728V177.2ZM206.014,216.24C201.491,220.72 195.944,222.96 189.374,222.96C182.803,222.96 177.235,220.72 172.67,216.24C168.147,211.717 165.886,206.171 165.886,199.6C165.886,193.029 168.147,187.504 172.67,183.024C177.235,178.501 182.803,176.24 189.374,176.24C195.944,176.24 201.491,178.501 206.014,183.024C210.579,187.504 212.862,193.029 212.862,199.6C212.862,206.171 210.579,211.717 206.014,216.24ZM180.734,208.368C183.038,210.629 185.918,211.76 189.374,211.76C192.83,211.76 195.71,210.629 198.014,208.368C200.318,206.064 201.47,203.141 201.47,199.6C201.47,196.059 200.318,193.157 198.014,190.896C195.71,188.592 192.83,187.44 189.374,187.44C185.918,187.44 183.038,188.592 180.734,190.896C178.43,193.157 177.278,196.059 177.278,199.6C177.278,203.141 178.43,206.064 180.734,208.368ZM242.88,177.2H254.272V222H245.44L229.632,199.472V222H218.176V177.2H227.072L242.88,199.728V177.2ZM272.82,211.248H290.164V222H261.364V177.2H289.844V187.888H272.82V194.096H288.244V204.656H272.82V211.248Z" />
+</vector>

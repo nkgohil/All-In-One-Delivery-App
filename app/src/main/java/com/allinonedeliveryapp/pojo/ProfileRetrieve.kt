@@ -1,5 +1,9 @@
 package com.allinonedeliveryapp.pojo
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class ProfileRetrieve(
     val created_at: String,
     val profile_id: Int,
@@ -8,4 +12,4 @@ data class ProfileRetrieve(
     val updated_at: String,
     val user_id: String,
     val username: String
-)
+) : Parcelable

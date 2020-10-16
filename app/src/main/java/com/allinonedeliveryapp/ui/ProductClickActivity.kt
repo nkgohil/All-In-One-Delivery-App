@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import com.allinonedeliveryapp.R
@@ -13,12 +14,13 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_product_click.*
 
 
-class ProductClickActivity : AppCompatActivity() {
+class ProductClickActivity : AppCompatActivity(), View.OnClickListener {
 
     var list: Subcategory? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_click)
+        initview()
 
         if (intent != null) {
             list = intent.getParcelableExtra("data")
@@ -83,6 +85,12 @@ class ProductClickActivity : AppCompatActivity() {
         }
     }
 
+    private fun initview() {
+        callus.setOnClickListener(this)
+        btnmessage.setOnClickListener(this)
+        directwhatsapp.setOnClickListener(this)
+    }
+
     private fun getDescription() {
         tvdescription.text = list!!.description
         tvhowmightwork.text = list!!.how_it_works
@@ -91,4 +99,39 @@ class ProductClickActivity : AppCompatActivity() {
 
     }
 
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.callus -> {
+                val callIntent = Intent(Intent.ACTION_DIAL)
+                callIntent.data = Uri.parse("tel:123456789")
+                startActivity(callIntent)
+            }
+            R.id.btnmessage -> {
+                val uri = Uri.parse("smsto:7878716161")
+                val intent = Intent(Intent.ACTION_SENDTO, uri)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                intent.putExtra("sms_body", "I want to buy " + list!!.title)
+                startActivity(intent)
+            }
+            R.id.directwhatsapp -> {
+                openWhatsApp()
+            }
+        }
+    }
+
+    private fun openWhatsApp() {
+        try {
+            val text = "i want to buy " + list!!.title // Replace with your message.
+            val toNumber =
+                "917878716161" // Replace with mobile phone number without +Sign or leading zeros, but with country code
+            //Suppose your country is India and your phone number is “xxxxxxxxxx”, then you need to send “91xxxxxxxxxx”.
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("http://api.whatsapp.com/send?phone=$toNumber&text=$text")
+            startActivity(intent)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
 }

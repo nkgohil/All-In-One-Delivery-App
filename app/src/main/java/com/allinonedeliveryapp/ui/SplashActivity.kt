@@ -4,9 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import com.allinonedeliveryapp.R
 import com.allinonedeliveryapp.util.PreferenceHelper
+import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +20,13 @@ class SplashActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
+        var anim: Animation = AnimationUtils.loadAnimation(this, R.anim.splash)
         Handler().postDelayed({
+            splashlogo.setImageResource(R.drawable.maapaa)
+
+        }, 1000)
+        Handler().postDelayed({
+
             moveToNextScreen()
         }, 2000)
     }
