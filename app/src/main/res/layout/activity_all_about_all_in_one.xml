@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    tools:context=".AllAboutAllInOne">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/gilroy_semibold"
+        android:padding="@dimen/size_20dp"
+        android:text="@string/this_app_is_solely_made_to_simplify_client_s_requirements_for_various_services_and_many_more_things_as_the_indian_way_you_can_whatsapp_or_text_message_to_any_vendor_for_inquiries_and_buy_stuffs_you_ll_get_in_direct_touch_with_vendor_without_any_middleman_or_having_any_troubles"
+        android:textColor="@color/green"
+        android:textSize="@dimen/size_24sp" />
+
+    <ImageView
+        android:layout_width="@dimen/size_200dp"
+        android:layout_height="@dimen/size_200dp"
+        android:layout_gravity="center"
+        android:src="@drawable/maapaa" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/gilroy_semibold"
+        android:padding="@dimen/size_20dp"
+        android:text="Credits : Mother and Father"
+        android:textColor="@color/green"
+        android:textSize="@dimen/size_24sp" />
+</LinearLayout>
