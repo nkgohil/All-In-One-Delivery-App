@@ -60,12 +60,11 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <ImageView
+                    <com.glide.slider.library.SliderLayout
                         android:id="@+id/imgproduct"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#ffffff"
-                        android:src="@drawable/ic_rectangle_15" />
+                        android:layout_height="@dimen/size_300dp"
+                        android:background="#ffffff" />
 
                     <TextView
                         android:layout_width="match_parent"

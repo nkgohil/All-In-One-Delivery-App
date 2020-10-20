@@ -14,4 +14,11 @@
         <item name="colorAccent">@color/green</item>
     </style>
 
+    <style name="GlideSliderBackgroundStyle">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@drawable/placeholder</item>
+    </style>
+
+
 </resources>

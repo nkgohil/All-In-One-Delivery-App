@@ -18,6 +18,11 @@ data class Subcategory(
     val description: String,
     val how_it_works: String,
     val image: String,
+    val image1: String?,
+    val image2: String?,
+    val image3: String?,
+    val image4: String?,
+    val image5: String?,
     val subcategory_id: Int,
     val title: String
 ) : Parcelable

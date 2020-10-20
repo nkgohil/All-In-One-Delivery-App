@@ -35,5 +35,8 @@ interface WebAPIService {
         @Field("profile_image") profile_image: String
     ): Call<ProfileUpdate>
 
+    @GET("category/photos")
+    fun photos(): Call<ArrayList<PhotosItem>>
+
 
 }   

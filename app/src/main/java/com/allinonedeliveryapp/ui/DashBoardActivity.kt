@@ -31,7 +31,6 @@ class DashBoardActivity : AppCompatActivity(), OnRecyclerItemClickListener<Subca
     var generalList: ArrayList<Subcategory> = arrayListOf()
     var repairingList: ArrayList<Subcategory> = arrayListOf()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        overridePendingTransition(R.anim.fadein, R.anim.fadeout)
@@ -48,7 +47,6 @@ class DashBoardActivity : AppCompatActivity(), OnRecyclerItemClickListener<Subca
             .enqueue(object :
                 RemoteCallback<ProfileRetrieve>() {
                 override fun onSuccess(response: ProfileRetrieve?) {
-
                     Glide.with(this@DashBoardActivity).asBitmap()
                         .placeholder(R.drawable.placeholder)
                         .load(response!!.profile_image).into(imageProfiledashboard)
@@ -79,6 +77,7 @@ class DashBoardActivity : AppCompatActivity(), OnRecyclerItemClickListener<Subca
     private fun initView() {
         contactus.setOnClickListener {
             openWhatsApp()
+
         }
         rvFoodServices.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
@@ -147,9 +146,9 @@ class DashBoardActivity : AppCompatActivity(), OnRecyclerItemClickListener<Subca
 
     private fun openWhatsApp() {
         try {
-            val text = "I want to buy" // Replace with your message.
+            val text = "i want to buy " // Replace with your message.
             val toNumber =
-                "917878716161" // Replace with mobile phone number without +Sign or leading zeros, but with country code
+                "916353822895" // Replace with mobile phone number without +Sign or leading zeros, but with country code
             //Suppose your country is India and your phone number is “xxxxxxxxxx”, then you need to send “91xxxxxxxxxx”.
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse("http://api.whatsapp.com/send?phone=$toNumber&text=$text")

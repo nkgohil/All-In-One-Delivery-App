@@ -61,4 +61,5 @@ class WebAPIManager private constructor() {
         return mApiService.profileUpdate(profile_id, profile_image)
     }
 
+
 }

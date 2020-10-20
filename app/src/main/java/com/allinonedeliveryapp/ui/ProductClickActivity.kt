@@ -5,26 +5,46 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import com.allinonedeliveryapp.R
 import com.allinonedeliveryapp.pojo.Subcategory
-import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.glide.slider.library.SliderLayout
+import com.glide.slider.library.slidertypes.DefaultSliderView
 import kotlinx.android.synthetic.main.activity_product_click.*
 
 
 class ProductClickActivity : AppCompatActivity(), View.OnClickListener {
-
+    private var mDemoSlider: SliderLayout? = null
     var list: Subcategory? = null
+    val listUrl: ArrayList<String> = ArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_click)
         initview()
 
+
+        mDemoSlider = findViewById(R.id.imgproduct)
         if (intent != null) {
             list = intent.getParcelableExtra("data")
         }
+        listUrl.add(list!!.image!!)
+        listUrl.add(list!!.image1!!)
+        listUrl.add(list!!.image2!!)
+        listUrl.add(list!!.image3!!)
+        Log.e("listsize", listUrl.size.toString())
+        Log.e("list", list!!.image1!!)
+        val requestOptions = RequestOptions()
+        requestOptions.centerCrop()
+        val sliderView = DefaultSliderView(this)
+        for (i in listUrl.indices) {
+            sliderView.image(listUrl[i])
+            mDemoSlider!!.addSlider(sliderView)
+        }
+
         menuIcon.setOnClickListener {
             val intent = Intent(this, DashBoardActivity::class.java)
             startActivity(intent)
@@ -94,7 +114,6 @@ class ProductClickActivity : AppCompatActivity(), View.OnClickListener {
     private fun getDescription() {
         tvdescription.text = list!!.description
         tvhowmightwork.text = list!!.how_it_works
-        Glide.with(this).load(list!!.image).into(imgproduct)
         tvtitle.text = list!!.title
 
     }
@@ -103,11 +122,11 @@ class ProductClickActivity : AppCompatActivity(), View.OnClickListener {
         when (v?.id) {
             R.id.callus -> {
                 val callIntent = Intent(Intent.ACTION_DIAL)
-                callIntent.data = Uri.parse("tel:123456789")
+                callIntent.data = Uri.parse("tel:" + list!!.contact_number)
                 startActivity(callIntent)
             }
             R.id.btnmessage -> {
-                val uri = Uri.parse("smsto:7878716161")
+                val uri = Uri.parse("smsto:" + list!!.contact_number)
                 val intent = Intent(Intent.ACTION_SENDTO, uri)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
@@ -124,8 +143,8 @@ class ProductClickActivity : AppCompatActivity(), View.OnClickListener {
     private fun openWhatsApp() {
         try {
             val text = "i want to buy " + list!!.title // Replace with your message.
-            val toNumber =
-                "917878716161" // Replace with mobile phone number without +Sign or leading zeros, but with country code
+            val toNumber = list!!.contact_number
+            // Replace with mobile phone number without +Sign or leading zeros, but with country code
             //Suppose your country is India and your phone number is “xxxxxxxxxx”, then you need to send “91xxxxxxxxxx”.
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse("http://api.whatsapp.com/send?phone=$toNumber&text=$text")
