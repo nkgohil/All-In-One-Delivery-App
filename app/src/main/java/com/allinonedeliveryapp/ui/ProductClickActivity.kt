@@ -5,15 +5,14 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import com.allinonedeliveryapp.R
 import com.allinonedeliveryapp.pojo.Subcategory
-import com.bumptech.glide.request.RequestOptions
 import com.glide.slider.library.SliderLayout
 import com.glide.slider.library.slidertypes.DefaultSliderView
+import com.glide.slider.library.slidertypes.TextSliderView
 import kotlinx.android.synthetic.main.activity_product_click.*
 
 
@@ -35,15 +34,25 @@ class ProductClickActivity : AppCompatActivity(), View.OnClickListener {
         listUrl.add(list!!.image1!!)
         listUrl.add(list!!.image2!!)
         listUrl.add(list!!.image3!!)
-        Log.e("listsize", listUrl.size.toString())
-        Log.e("list", list!!.image1!!)
-        val requestOptions = RequestOptions()
-        requestOptions.centerCrop()
         val sliderView = DefaultSliderView(this)
+        //.diskCacheStrategy(DiskCacheStrategy.NONE)
+        //.placeholder(R.drawable.placeholder)
+        //.error(R.drawable.placeholder);
         for (i in listUrl.indices) {
-            sliderView.image(listUrl[i])
+            val sliderView = TextSliderView(this)
+            // if you want show image only / without description text use DefaultSliderView instead
+
+            // initialize SliderLayout
+            sliderView
+                .image(listUrl[i])
+                .setProgressBarVisible(true)
+
+
+            //add your extra information
             mDemoSlider!!.addSlider(sliderView)
         }
+
+
 
         menuIcon.setOnClickListener {
             val intent = Intent(this, DashBoardActivity::class.java)
@@ -126,7 +135,7 @@ class ProductClickActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(callIntent)
             }
             R.id.btnmessage -> {
-                val uri = Uri.parse("smsto:" + list!!.contact_number)
+                val uri = Uri.parse("smsto:+" + list!!.contact_number)
                 val intent = Intent(Intent.ACTION_SENDTO, uri)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)

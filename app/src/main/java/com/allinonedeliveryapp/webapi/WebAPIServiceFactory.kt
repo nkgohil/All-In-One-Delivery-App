@@ -1,10 +1,8 @@
 package com.allinonedeliveryapp.webapi
 
-import com.allinonedeliveryapp.AppClass
 import com.allinonedeliveryapp.BuildConfig
 import com.allinonedeliveryapp.util.Constant
 import com.allinonedeliveryapp.util.PreferenceHelper
-import com.readystatesoftware.chuck.ChuckInterceptor
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -35,7 +33,7 @@ class WebAPIServiceFactory {
         httpClientBuilder.readTimeout(HTTP_READ_TIMEOUT.toLong(), TimeUnit.SECONDS)
         httpClientBuilder.writeTimeout(HTTP_WRITE_TIMEOUT.toLong(), TimeUnit.SECONDS)
 
-        httpClientBuilder.addInterceptor(ChuckInterceptor(AppClass.getInstance()))
+//        httpClientBuilder.addInterceptor(ChuckInterceptor(AppClass.getInstance()))
 
         httpClientBuilder.interceptors().add(Interceptor { chain ->
             val original = chain.request()
