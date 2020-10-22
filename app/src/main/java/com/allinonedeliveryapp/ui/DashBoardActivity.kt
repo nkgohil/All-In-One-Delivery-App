@@ -3,7 +3,6 @@ package com.allinonedeliveryapp.ui
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -59,11 +58,12 @@ class DashBoardActivity : AppCompatActivity(), OnRecyclerItemClickListener<Subca
                 }
 
                 override fun onFailed(throwable: Throwable) {
-                    Log.e("tag", throwable.localizedMessage)
+
 
                 }
 
                 override fun onInternetFailed() {
+                    showToast("no internet available!!")
                     hideProgressDialog()
                 }
 
@@ -128,7 +128,7 @@ class DashBoardActivity : AppCompatActivity(), OnRecyclerItemClickListener<Subca
                 }
 
                 override fun onFailed(throwable: Throwable) {
-                    showToast(throwable.message!!)
+                    showToast("Something went Wrong!!")
                     hideProgressDialog()
                 }
 

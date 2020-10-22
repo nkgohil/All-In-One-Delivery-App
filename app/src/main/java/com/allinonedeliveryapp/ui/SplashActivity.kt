@@ -9,7 +9,6 @@ import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import com.allinonedeliveryapp.R
 import com.allinonedeliveryapp.util.PreferenceHelper
-import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,8 +21,8 @@ class SplashActivity : AppCompatActivity() {
         )
         var anim: Animation = AnimationUtils.loadAnimation(this, R.anim.splash)
         Handler().postDelayed({
-            splashlogo.setImageResource(R.drawable.maapaa)
-
+//            splashlogo.setImageResource(R.drawable.maapaa)
+//
         }, 1000)
         Handler().postDelayed({
 

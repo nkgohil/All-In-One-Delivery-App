@@ -15,6 +15,7 @@ import com.allinonedeliveryapp.AllAboutAllInOne
 import com.allinonedeliveryapp.R
 import com.allinonedeliveryapp.extension.hideProgressDialog
 import com.allinonedeliveryapp.extension.showProgressDialog
+import com.allinonedeliveryapp.extension.showToast
 import com.allinonedeliveryapp.pojo.ProfileRetrieve
 import com.allinonedeliveryapp.pojo.ProfileUpdate
 import com.allinonedeliveryapp.util.Constant
@@ -76,10 +77,12 @@ class ProfileScreen : AppCompatActivity(), View.OnClickListener {
                 }
 
                 override fun onFailed(throwable: Throwable) {
-                    Log.e("tag", throwable.localizedMessage)
+                    showToast("Something went Wrong!!")
+                    hideProgressDialog()
                 }
 
                 override fun onInternetFailed() {
+                    showToast("no internet available!!")
                     hideProgressDialog()
                 }
 

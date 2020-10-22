@@ -84,12 +84,14 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             override fun onFailed(throwable: Throwable) {
+                showToast("Something went Wrong!!")
                 hideProgressDialog()
-                showToast(throwable.message!!)
+
 
             }
 
             override fun onInternetFailed() {
+                showToast("no internet available!!")
                 hideProgressDialog()
             }
 

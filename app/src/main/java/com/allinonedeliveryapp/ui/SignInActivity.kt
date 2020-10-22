@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.allinonedeliveryapp.R
 import com.allinonedeliveryapp.extension.hideProgressDialog
 import com.allinonedeliveryapp.extension.showProgressDialog
+import com.allinonedeliveryapp.extension.showToast
 import com.allinonedeliveryapp.pojo.Login
 import com.allinonedeliveryapp.util.PreferenceHelper
 import com.allinonedeliveryapp.webapi.RemoteCallback
@@ -105,12 +106,13 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
 
                 override fun onFailed(throwable: Throwable) {
                     wrongid.text = throwable.message!!
-
+                    showToast("Something went Wrong!!")
                     hideProgressDialog()
 
                 }
 
                 override fun onInternetFailed() {
+                    showToast("no internet available!!")
                     hideProgressDialog()
 
                 }
